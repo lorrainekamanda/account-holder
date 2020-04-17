@@ -58,8 +58,18 @@ class testAccount(unittest.TestCase):
         self.new_account.remove_account()
         self.assertEqual(len(Account.account_list),1)
 
-    
-    
+    def test__search_account_by_username(self):
+         """
+         search a saved account by number
+         """
+         self.new_account.save_account()
+         test_another_account = Account('grace','newzealand2020')
+         test_another_account.save_account()
+
+
+        
+         get_account = Account.find_by_number('grace')
+         self.assertEqual(get_account.password,test_another_account.password)
 
 
 if __name__ == '__main__':
