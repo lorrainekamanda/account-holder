@@ -25,6 +25,7 @@ class testAccount(unittest.TestCase):
 
         self.assertEqual(self.new_account.user_name,'lorraine1997')
         self.assertEqual(self.new_account.password,'leilanjeri123')
+
         self.assertEqual(self.new_credential.first_name,'Lorraine')
         self.assertEqual(self.new_credential.last_name,'Kamanda')
         self.assertEqual(self.new_credential.email,'lorrainekamanda@gmail.com')
@@ -47,6 +48,7 @@ class testAccount(unittest.TestCase):
 
     def tearDown(self):
         Account.account_list = []
+        Credential.credential_list =[]
         """
         tearDown is what will be runned after each test
         """
@@ -60,6 +62,12 @@ class testAccount(unittest.TestCase):
         test_another_account = Account('grace','newzealand2020')
         test_another_account.save_account()
         self.assertEqual(len(Account.account_list),2)
+
+        self.new_credential.save_account()
+        test_another_credential = Credential('Grace','Claire','gwanjiku33@gmail.com','0721849552')
+        test_another_credential.save_account()
+
+
 
     def test__remove_account(self):
         """
