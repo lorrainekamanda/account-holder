@@ -70,6 +70,13 @@ class testAccount(unittest.TestCase):
         
          get_account = Account.find_by_number('grace')
          self.assertEqual(get_account.password,test_another_account.password)
+    
+    def test_display_all_accounts(self):
+          """
+          test will show all available accounts
+
+          """
+          self.assertEqual(Account.display_account(),Account.account_list)
 
 
 if __name__ == '__main__':
