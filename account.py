@@ -62,4 +62,11 @@ class Credential:
         deleting credentials
         """
         Credential.credential_list.remove(self)
+
+    @classmethod
+    def display_credential(cls):
+        return cls.credential_list
+
+    @classmethod
+    def 
      
