@@ -97,10 +97,17 @@ class testAccount(unittest.TestCase):
          test_another_account = Account('grace','newzealand2020')
          test_another_account.save_account()
 
+         self.new_credential.save_account()
+         test_another_credential = Credential('Grace','Claire','gwanjiku33@gmail.com','0721849552')
+         test_another_credential.save_account()
 
-        
          get_account = Account.find_by_number('grace')
          self.assertEqual(get_account.password,test_another_account.password)
+
+         get_credential = Credential.find_by_number('Grace')
+         self.assertEqual(get_credential.phone_number,test_another_credential.phone_number)
+
+
     
     def test_display_all_accounts(self):
           """
