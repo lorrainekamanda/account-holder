@@ -66,7 +66,17 @@ class Credential:
     @classmethod
     def display_credential(cls):
         return cls.credential_list
+        """
+        this method ensures that all the credentials of the user can be displayed
+        """
 
     @classmethod
-    def 
-     
+    def find_by_number(cls,number):
+        for credential in cls.credential_list:
+            if credential.first_name == number:
+                return credential
+        """
+        this method ensures that you can search for credentials using your first name
+        """
+
+    
