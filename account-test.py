@@ -31,13 +31,19 @@ class testAccount(unittest.TestCase):
         self.assertEqual(self.new_credential.phone_number,'0726889409')
 
         Account.account_list =[]
+        Credential.credential_list = []
     
     def test__save_account(self):
         """
-        this test checks to see if the account is saved 
+        this test checks to see if the user account is saved 
+        the second part tests whether the credentials are saved
         """
         self.new_account.save_account()
         self.assertEqual(len(Account.account_list),1)
+
+        self.new_credential.save_account()
+        self.assertEqual(len(Credential.credential_list),1)
+
 
     def tearDown(self):
         Account.account_list = []
