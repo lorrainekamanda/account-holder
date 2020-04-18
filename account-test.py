@@ -80,6 +80,15 @@ class testAccount(unittest.TestCase):
         self.new_account.remove_account()
         self.assertEqual(len(Account.account_list),1)
 
+        self.new_credential.save_account()
+        test_another_credential = Credential('Grace','Claire','gwanjiku33@gmail.com','0721849552')
+        test_another_credential.save_account()
+
+        self.new_credential.remove_account()
+        self.assertEqual(len(Credential.credential_list),1)
+
+
+
     def test__search_account_by_username(self):
          """
          search a saved account by number

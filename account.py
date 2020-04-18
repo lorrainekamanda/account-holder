@@ -56,4 +56,10 @@ class Credential:
         """
         saving credentials
         """
+
+    def remove_account(self):
+        """
+        deleting credentials
+        """
+        Credential.credential_list.remove(self)
      
