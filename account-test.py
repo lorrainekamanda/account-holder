@@ -104,10 +104,12 @@ class testAccount(unittest.TestCase):
     
     def test_display_all_accounts(self):
           """
-          test will show all available accounts
+          test will show all available accounts and credentials
 
           """
           self.assertEqual(Account.display_account(),Account.account_list)
+
+          self.assertEqual(Credential.display_credential(),Credential.credential_list)
 
     # the credentials test
 
