@@ -1,10 +1,13 @@
 from account import Account
+from account import Credential
 import unittest
 """
 import unnittest and Account class
+Account is the user class while credentials is the Credential class
 """
 
 class testAccount(unittest.TestCase):
+    # this is the user test
 
     def setUp(self):
         """
@@ -12,15 +15,20 @@ class testAccount(unittest.TestCase):
         """
 
     
-        self.new_account = Account('lorraine','leilanjeri123')
+        self.new_account = Account('lorraine1997','leilanjeri123')
+        self.new_credential = Credential("Lorraine",'Kamanda','lorrainekamanda@gmail.com','0726889409')
 
     def test__init(self):
         """
-        check if the system is initialiazing correctly
+        check if the system is initialiazing the Account and credential Objects correctly
         """  
 
-        self.assertEqual(self.new_account.user_name,'lorraine')
+        self.assertEqual(self.new_account.user_name,'lorraine1997')
         self.assertEqual(self.new_account.password,'leilanjeri123')
+        self.assertEqual(self.new_credential.first_name,'Lorraine')
+        self.assertEqual(self.new_credential.last_name,'Kamanda')
+        self.assertEqual(self.new_credential.email,'lorrainekamanda@gmail.com')
+        self.assertEqual(self.new_credential.phone_number,'0726889409')
 
         Account.account_list =[]
     
@@ -77,6 +85,11 @@ class testAccount(unittest.TestCase):
 
           """
           self.assertEqual(Account.display_account(),Account.account_list)
+
+    # the credentials test
+
+
+    
 
 
 if __name__ == '__main__':
