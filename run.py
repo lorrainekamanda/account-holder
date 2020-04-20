@@ -41,17 +41,17 @@ def save_credential(credential):
     """
     credential.save_account()
 
-def find_account(number):
+def find_account(password):
     """
     check if account exists inorder to log in
     """
-    return Account.account_exist(number)
+    return Account.account_exist(password)
 
-def account_exist(number):
+def account_exist(password):
     """
     check if contact exists
     """
-    return Account.account_exist(number)
+    return Account.account_exist(password)
 
 def display_account():
     return Account.display_account()
@@ -78,7 +78,7 @@ def main():
 
                 print("do you want to create an account?")
 
-                print("type ca if you want a new account,va to view accounts,ra to delete,cc to create credentials ")
+                print("type ca if you want a new account,lg to login ,va to view accounts,ra to delete,cc to create credentials ")
                 key = input()
                 if key == 'ca':
                    print("New Account")
@@ -95,7 +95,7 @@ def main():
                        password = input()
 
                    elif password == "gp":
-                      password = random.randint(1,1000)
+                      password = str(random.randint(1,1000))
 
                    else:
                       print("please enter a valid option")
@@ -117,6 +117,15 @@ def main():
 
                     else:
                         print("account doesnt exist")
+
+                elif key == "lg":
+                   
+                    print ("key in password")
+                    password = input()
+                    if account_exist(password):
+                        print(f"Welcome:{username}, Password{password} you have sucessfully loged into your account")
+                    else:
+                        print("ooops no such account")
                 
                 elif key == "ra":
                     print("username to delete")
