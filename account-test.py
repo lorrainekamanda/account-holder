@@ -16,7 +16,7 @@ class testAccount(unittest.TestCase):
 
     
         self.new_account = Account('lorraine1997','leilanjeri123')
-        self.new_credential = Credential("Lorraine",'Kamanda','lorrainekamanda@gmail.com','0726889409')
+        self.new_credential = Credential("Lorraine",'Kamanda','lorrainekamanda@gmail.com','0726889409','instagram','lorrainsta','insta123')
 
     def test__init(self):
         """
@@ -25,11 +25,13 @@ class testAccount(unittest.TestCase):
 
         self.assertEqual(self.new_account.user_name,'lorraine1997')
         self.assertEqual(self.new_account.password,'leilanjeri123')
-
         self.assertEqual(self.new_credential.first_name,'Lorraine')
         self.assertEqual(self.new_credential.last_name,'Kamanda')
         self.assertEqual(self.new_credential.email,'lorrainekamanda@gmail.com')
         self.assertEqual(self.new_credential.phone_number,'0726889409')
+        self.assertEqual(self.new_credential.account_name,'instagram')
+        self.assertEqual(self.new_credential.account_username,'lorrainsta')
+        self.assertEqual(self.new_credential.account_password,'insta123')
 
         Account.account_list =[]
         Credential.credential_list = []
@@ -64,7 +66,7 @@ class testAccount(unittest.TestCase):
         self.assertEqual(len(Account.account_list),2)
 
         self.new_credential.save_account()
-        test_another_credential = Credential('Grace','Claire','gwanjiku33@gmail.com','0721849552')
+        test_another_credential = Credential('Grace','Claire','gwanjiku33@gmail.com','0721849552','twitter','gtwitter','gtweeter123')
         test_another_credential.save_account()
 
 
@@ -81,7 +83,7 @@ class testAccount(unittest.TestCase):
         self.assertEqual(len(Account.account_list),1)
 
         self.new_credential.save_account()
-        test_another_credential = Credential('Grace','Claire','gwanjiku33@gmail.com','0721849552')
+        test_another_credential = Credential('Grace','Claire','gwanjiku33@gmail.com','0721849552','facebook','gface111','saface222')
         test_another_credential.save_account()
 
         self.new_credential.remove_account()
@@ -89,7 +91,7 @@ class testAccount(unittest.TestCase):
 
 
 
-    def test__search_account_by_username(self):
+    def test__search_account_by_password(self):
          """
          search a saved account by number
          """
@@ -98,10 +100,10 @@ class testAccount(unittest.TestCase):
          test_another_account.save_account()
 
          self.new_credential.save_account()
-         test_another_credential = Credential('Grace','Claire','gwanjiku33@gmail.com','0721849552')
+         test_another_credential = Credential('Grace','Claire','gwanjiku33@gmail.com','0721849552','twitter','gtwitter','gtweeter123')
          test_another_credential.save_account()
 
-         get_account = Account.find_by_number('grace')
+         get_account = Account.find_by_number('newzealand2020')
          self.assertEqual(get_account.password,test_another_account.password)
 
          get_credential = Credential.find_by_number('Grace')
