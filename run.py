@@ -78,7 +78,7 @@ def main():
 
                 print("do you want to create an account?")
 
-                print("type ca if you want a new account,lg to login ,va to view accounts,ra to delete,cc to create credentials ")
+                print("type ca if you want a new account,lg to login ,va to view accounts,ra to delete account ")
                 key = input()
                 if key == 'ca':
                    print("New Account")
@@ -95,11 +95,15 @@ def main():
                        password = input()
 
                    elif password == "gp":
-                      password = str(random.randint(1,1000))
+                      ranges = int(input())
+                      print("type range to customize password length e.g 100 for two digit password or 1000 for a three digit password")
+                      password = str(random.randint(1,ranges))
+                      
+                      
 
                    else:
                       print("please enter a valid option")
-                    print ('\n')
+                      print ('\n')
 
                    save_account(create_account(username,password))
                    print ('\n')
