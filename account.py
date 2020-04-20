@@ -23,7 +23,7 @@ class Account:
     @classmethod
     def find_by_number(cls,number):
         for account in cls.account_list:
-            if account.user_name == number:
+            if account.password == number:
                  return account
         """
         this method ensures you can search for your account using only your username
@@ -35,9 +35,16 @@ class Account:
         """
         this method returns all saved accounts
         """
+    @classmethod
+    def account_exist(cls,number):
+        for account in cls.account_list:
+            if account.password == number:
+                return True
+        return False
+
 class Credential:
 
-    def __init__(self,first_name,last_name,email,phone_number):
+    def __init__(self,first_name,last_name,email,phone_number,account_name,account_username,account_password):
         """
         initializing the credential object
         """
@@ -45,6 +52,9 @@ class Credential:
         self.last_name = last_name
         self.email = email
         self.phone_number = phone_number
+        self.account_username = account_username
+        self.account_name = account_name
+        self.account_password = account_password
 
     credential_list = []
     """
@@ -78,5 +88,10 @@ class Credential:
         """
         this method ensures that you can search for credentials using your first name
         """
+
+    # @classmethod
+    # def account_exist(cls,number):
+    #     for 
+
 
     
