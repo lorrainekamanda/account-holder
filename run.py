@@ -10,7 +10,7 @@ def create_account(username,password):
     """
     new_account = Account(username,password)
     return new_account
-def remove_account(account):
+def delete_account(account):
     """
     function to remove account
 
@@ -41,17 +41,17 @@ def save_credential(credential):
     """
     credential.save_account()
 
-def find_account(password):
+def find_account(number):
     """
     check if account exists inorder to log in
     """
-    return Account.account_exist(password)
+    return Account.account_exist(number)
 
-def account_exist(username):
+def account_exist(number):
     """
     check if contact exists
     """
-    return Account.account_exist(username)
+    return Account.account_exist(number)
 
 def display_account():
     return Account.display_account()
@@ -111,7 +111,7 @@ def main():
                             print("here are/is the account created...")
                             print("\n")
 
-                            print(f"Username:{account.user_name} , Password:{account.password}").str()
+                            print(f"Username:{account.user_name} , Password:{account.password}")
 
               
 
@@ -122,18 +122,17 @@ def main():
                     print("username to delete")
 
                     username = input()
+
                     print("password")
 
                     password = input()
-                    print("-"*20)
-
                     if account_exist(username):
-                         username.remove_account()
-                         password.remove_account()
-
-                        # get_account = find_account(password)
-                        # print(f"deleted {get_account.username} and {get_account.password} successfully")
-                        # remove = remove_account(get_account)
+                         
+                        get_account = account_exist(username)
+                        delete_account(get_account)
+                        print(f"deleted {get_account.username} and {get_account.password} successfully")
+                       
+                       
                     else:
                         ("no such account")
                         
