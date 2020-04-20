@@ -84,12 +84,12 @@ def main():
                    print("New Account")
                    print("-"*10)
                    print("Create account username ")
-                   
+                   print ('\n')
                    username =input()
-                   print("type cp to create your own password or gp to have password generated for you,cc to create new credentials")
-
+                   print("type cp to create your own password or gp to have password generated for you")
+                
                    password = input()
-
+                   print ('\n')
                    if password == "cp":
                        print("create password")
                        password = input()
@@ -99,7 +99,7 @@ def main():
 
                    else:
                       print("please enter a valid option")
-
+                    print ('\n')
 
                    save_account(create_account(username,password))
                    print ('\n')
@@ -123,7 +123,9 @@ def main():
                     print ("key in password")
                     password = input()
                     if account_exist(password):
-                        print(f"Welcome:{username}, Password{password} you have sucessfully loged into your account")
+                        print(f"Welcome:{username}, Password : {password} you have sucessfully loged into your account")
+                        print ('\n')
+                        print("Now fill in your credentials, cc to create new credentials,vc to view credentials and rc to remove credentials")
                     else:
                         print("ooops no such account")
                 
@@ -152,8 +154,8 @@ def main():
                 
                 elif key == 'cc': 
                    print("Credentials")
-                   print('key in cc to create credential,vc to view credential,rc to remove credentials')
-                
+                   
+                   print("\n")
                 
                    print('new credentials')
 
@@ -162,16 +164,20 @@ def main():
                    print('First Name..')
 
                    first_name = input()
+                   print("\n")
 
                    print("Last Name...") 
 
                    last_name = input()
+                   print("\n")
 
                    print('Email..')
+                   print("\n")
 
                    email = input()
 
-                   print("Phone Number...") 
+                   print("Phone Number...")
+                   print("\n") 
 
                    phone_number = input()
 
@@ -180,6 +186,7 @@ def main():
                    account_name = input()
 
                    print("Account Username...") 
+                   print("\n")
 
                    account_username = input()
 
@@ -188,6 +195,7 @@ def main():
                    account_password = input()
 
                    save_credential(create_credential(first_name,last_name,email,phone_number,account_name,account_username,account_password))
+                   print("\n")
 
                    print('account and credential saved,any other option')
 
@@ -202,12 +210,15 @@ def main():
                         for credential in  display_credential():
                             print("The Credentials")
                             print(f" Identity:{credential.first_name,credential.last_name}")
+                            print("\n")
                             print(f" Contacts:{credential.email,credential.phone_number}")
+                            print("\n")
                             print(f" Account:{credential.account_name},{credential.account_username},{credential.account_password}")
             
 
 
                 else:
+                    print("\n")
                     print('not an option')
 
 
